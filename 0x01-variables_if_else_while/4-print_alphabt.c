@@ -2,7 +2,7 @@
 /**
  * main - print aplhabets in lower case using putchar
  *
- * Reeturn: always 0
+ * Return: always 0
  */
 int main(void)
 {
