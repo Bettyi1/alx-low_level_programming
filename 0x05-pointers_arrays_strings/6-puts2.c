@@ -2,8 +2,9 @@
 
 /**
  * puts2 - print strings
+ * start with the first one
  * @str: function parameter
- * Return: 0
+ * Return: print
  */
 
 void puts2(char *str)
