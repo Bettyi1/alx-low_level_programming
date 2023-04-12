@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include "main.h"
+
 /**
  * argstostr -concatenates arguments of a program
  * @ac: input value
  * @av:  pointer array
- *
  * Return: 0
  */
 char *argstostr(int ac, char **av)
