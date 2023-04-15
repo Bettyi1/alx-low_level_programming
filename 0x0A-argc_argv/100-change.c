@@ -9,10 +9,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int i;
-	int num;
-	int count_c;
-	int coins[] = {20, 10, 5, 2, 1};
+	int i, num, count_c;
+	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
