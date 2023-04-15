@@ -3,7 +3,6 @@
 #include "main.h"
 /**
  * main - function prints minimum number of coins
- * make change for an amount of money
  * @argc:input value
  * @argv: array of arguments
  * Return: 0, 1
@@ -13,7 +12,6 @@ int main(int argc, char *argv[])
 	int i;
 	int num;
 	int count_c;
-
 	int coins[] = {20, 10, 5, 2, 1};
 
 	if (argc != 2)
