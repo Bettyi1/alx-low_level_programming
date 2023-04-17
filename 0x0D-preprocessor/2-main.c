@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include<stdlib.h>
 /**
- * main - function prints file name
+ * main - main function
  * Return: 0
  */
 int main(void)
 {
-	printf("Compiled from file: %s\n", __FILE__);
+	printf("%s\n", __FILE__);
 	return (0);
 }
