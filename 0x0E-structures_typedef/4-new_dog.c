@@ -17,7 +17,7 @@ int _strlen(char *str)
 	return (j);
 }
 /**
- * _strcopy - function copies string pointed to by src
+ * _strcopy - function copies string
  * @dest: input value
  * @src: input value
  * Return: pointer to dest
@@ -63,8 +63,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dogy->name);
 		return (NULL);
 	}
-	_strcpy(dogy->name, name);
-	_strcpy(dogy->owner, owner);
+	dogy->name = _strcopy(dogy->name, name);
 	dogy->age = age;
+	dogy->owner = _strcopy(dogy->owner, owner);
 	return (dogy);
 }
