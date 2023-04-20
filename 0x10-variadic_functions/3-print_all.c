@@ -1,48 +1,57 @@
-#include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include "variadic_functions.h"
+#include <stdlib.h>
 /**
- * print_all - prints anything
- * @format: list of types of arguments passed to the function
+ * print_all - function prints anything
+ * @format: format
+ * Returm: anything
  */
 void print_all(const char * const format, ...)
 {
-	int j = 0;
-	char *str, *sep = "";
+	va_list args;
 
-	va_list list;
+	va_start(args, format);
+	const char *ptr = format;
+	char c;
+	int i;
+	float f;
+	char *s;
 
-	va_start(list, format);
-
-	if (format)
+	while (*ptr)
 	{
-		while (format[j])
+		c = *ptr++;
+		switch (c)
 		{
-			switch (format[j])
-			{
-				case 'c':
-					printf("%s%c", sep, va_arg(list, int));
-					break;
-				case 'j':
-					printf("%s", sep, va_arg(list, int));
-						break;
-					case 'f':
-						printf("%s%f", sep, va_arg(list, double));
-						break;
-					case 's':
-						str = va_arg(list, char *);
-						if (!str)
-							str = "(nil)";
-						printf("%s%s", sep, str);
-						break;
-					default:
-						j++;
-						continue;
-			}
-			sep = ", ";
-			j++;
+			case 'c':
+				i = va_arg(args, int);
+				printf("%c", i);
+				break;
+			case 'i':
+				i = va_arg(args, int);
+				printf("%d", i);
+				break;
+			case 'f':
+				f = (float)va_arg(args, double);
+				printf("%f", f);
+				break;
+			case 's':
+				s = va_arg(args, char*);
+				if (s)
+				{
+					printf("%s", s);
+				}
+				else
+				{
+					printf("(nil)");
+				}
+				break;
+		}
+		if (*ptr)
+		{
+			printf(", ");
 		}
 	}
 	printf("\n");
-	va_end(list);
-
+	va_end(args);
+}
