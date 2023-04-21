@@ -42,7 +42,7 @@ void print_all(const char * const format, ...)
 					continue;
 			}
 			sep = ", ";
-			l++;
+			k++;
 		}
 	}
 	printf("\n");
