@@ -4,34 +4,38 @@
 #include <stdlib.h>
 /*
  * print_strings- prints strings
- * @:number of strings
+ * @n: number of arguments
  * @separator: separator
  * @...:last parameter
- *
- * Description: nil of string is NULL
- *
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	unsigned int k = 0;
+	unsigned int k;
 	char *str;
-	va_list strings;
+	va_list string;
 
-	va_start(strings, n);
+	if (separator == NULL)
+	{
+		separator = "";
+	}
+	va_start(string, n);
 
 	for (k = 0 ; k < n ; k++)
 	{
-		str = va_arg(strings, char *);
+		str = va_arg(string, char *);
 
 		if (str == NULL)
+		{
 			printf("nil");
-		else
-			printf("%s", str);
-	}
-	if (separator != NULL && k != n - 1)
-	{
+			break;
+		}
+		printf("%s", str);
+		if (n == k + 1)
+		{
+			break;
+		}
 		printf("%s", separator);
 	}
-	va_end(strings);
+	va_end(string);
 	printf("\n");
 }

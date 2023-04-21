@@ -3,55 +3,47 @@
 #include "variadic_functions.h"
 #include <stdlib.h>
 /**
- * print_all - function prints anything
- * @format: format
- * Returm: anything
- */
+* print_all - function prints anything
+* @format: format
+* Returm: anything
+*/
 void print_all(const char * const format, ...)
 {
-	va_list args;
+	int k = 0;
 
-	va_start(args, format);
-	const char *ptr = format;
-	char c;
-	int i;
-	float f;
-	char *s;
+	char *str, *sep = "";
+	list list;
 
-	while (*ptr)
+	va_start(list, format);
+
+	if (format)
 	{
-		c = *ptr++;
-		switch (c)
+		while (format[k])
 		{
-			case 'c':
-				i = va_arg(args, int);
-				printf("%c", i);
-				break;
-			case 'i':
-				i = va_arg(args, int);
-				printf("%d", i);
-				break;
-			case 'f':
-				f = (float)va_arg(args, double);
-				printf("%f", f);
-				break;
-			case 's':
-				s = va_arg(args, char*);
-				if (s)
-				{
-					printf("%s", s);
-				}
-				else
-				{
-					printf("(nil)");
-				}
-				break;
-		}
-		if (*ptr)
-		{
-			printf(", ");
+			switch (format[k])
+			{
+				case 'c':
+					printf("%s%c", sep, va_arg(list, int));
+					break;
+				case 'i':
+					printf("%s%d", sep, va_arg(list, int));
+					break;
+				case 'f':
+					printf("%s%f", sep, va_arg(list, double));
+					break;
+				case 's':
+					str = va_arg(list, char *);
+					if (!str)
+						str = "(nil)";
+					printf("%s%s", sep, str);
+					break;
+				default:
+					k++;
+					continue;
+			}
+			sep = ", ";
+			l++;
 		}
 	}
 	printf("\n");
-	va_end(args);
-}
+	va_end(list);
