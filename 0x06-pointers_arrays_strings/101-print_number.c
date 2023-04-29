@@ -10,12 +10,13 @@
 void print_number(int n)
 {
 	unsigned int j;
+
 	j = n;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;/*checks if integer is -ve */
+		j = -n;/*checks if integer is -ve */
 	}
 	/* negative int to positive*/
 	if (j / 10 != 0)
