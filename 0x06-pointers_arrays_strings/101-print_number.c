@@ -5,23 +5,20 @@
 /**
  * print_number - function prints an integer
  * @n: interger input
- *
  * Return: 0
  */
 void print_number(int n)
 {
-	unsigned int j;
+	unsigned int k;
 
 	if (n < 0)
 	{
 		_putchar('-');
 		n *= -1;
 	}
-	j = n;
+	k = n;
 
-	if (j / 10)
-	{
-		print_number(j / 10);
-	}
-	_putchar(j % 10 + '0');
+	if (k / 10)
+		print_number(k / 10);
+	_putchar(k % 10 + '0');
 }
