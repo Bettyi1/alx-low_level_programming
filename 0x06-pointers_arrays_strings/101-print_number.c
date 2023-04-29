@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -15,13 +13,16 @@ void print_number(int n)
 
 	if (n < 0)
 	{
-		_putchar('-');
-		j = -n;/*checks if integer is -ve */
+		_putcha-r('-');
+		j = -n;
+		/*checks if integer is -ve */
 	}
 	/* negative int to positive*/
 	if (j / 10 != 0)
 	{
-		print_number(j / 10); /* diviides eery int by 10 to make it positive*/
+		print_number(j / 10);
+		/* diviides eery int by 10 to make it positive*/
 	}
-	_putchar((j % 10) + '0');/* converst to ASCII character representation*/
+	_putchar((j % 10) + '0');
+	/* converst to ASCII character representation*/
 }
