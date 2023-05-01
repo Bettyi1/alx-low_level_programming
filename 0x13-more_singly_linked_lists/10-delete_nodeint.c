@@ -3,18 +3,16 @@
 /**
  * delete_nodeint_at_index - deletes node at index
  * @head: pointer
- * @index: index*
+ * @index: index
+ *
  * Return: 1, or -1
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	unsigned int k;
+	unsigned int k = 0;
 	listint_t *ap = *head;
-	listint_t *new_n;
+	listint_t *new_n = NULL;
 
-	new_n = NULL;
-	k = 0;
-	
 	if (head == NULL || *head == NULL)
 	{
 		return (-1);
@@ -31,6 +29,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		ap = ap->next;
 		k++;
 	}
+
 	new_n = ap->next;
 	ap->next = new_n->next;
 	free(new_n);
