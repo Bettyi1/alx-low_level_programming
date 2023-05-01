@@ -1,9 +1,9 @@
 #include "lists.h"
 /**
- * insert_nodeint_at_index - add new node in a linked list
+ * insert_nodeint_at_index - inserts new nod
  * @head: first node pointer
  * @n: input type
- * @idx: index where the new node is added
+ * @idx: index
  * Return: new node pointer, or NULL
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
@@ -27,7 +27,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (node1);
 	}
 
-	for (; ap && x < idx; x++)
+	for (x = 0 ; ap && x < idx; x++)
 	{
 		if (x == idx - 1)
 		{
