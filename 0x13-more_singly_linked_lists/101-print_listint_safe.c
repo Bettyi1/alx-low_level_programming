@@ -3,7 +3,6 @@
 
 size_t looped_listint_len(const listint_t *head);
 size_t print_listint_safe(const listint_t *head);
-
 /**
  * looped_listint_len - functions Counts unique nodes
  * @head: pointer
@@ -18,7 +17,6 @@ size_t looped_listint_len(const listint_t *head)
 		return (0);
 	jan = head->next;
 	feb = (head->next)->next;
-
 	while (feb)
 	{
 		if (jan == feb)
@@ -31,7 +29,6 @@ size_t looped_listint_len(const listint_t *head)
 				jan = jan->next;
 				feb = feb->next;
 			}
-
 			jan = jan->next;
 			while (jan != feb)
 			{
@@ -57,7 +54,6 @@ size_t print_listint_safe(const listint_t *head)
 	size_t adrs = 0;
 
 	newd = looped_listint_len(head);
-
 	if (newd == 0)
 	{
 		for (; head != NULL; newd++)
@@ -77,4 +73,3 @@ size_t print_listint_safe(const listint_t *head)
 	}
 	return (newd);
 }
-
