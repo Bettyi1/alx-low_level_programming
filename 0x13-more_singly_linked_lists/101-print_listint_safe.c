@@ -1,5 +1,51 @@
 #include <stdio.h>
 #include "lists.h"
+
+size_t looped_listint_len(const listint_t *head);
+size_t print_listint_safe(const listint_t *head);
+
+/**
+ * looped_listint_len - functions Counts unique nodes
+ * @head: pointer
+ * Return: number of unique nodes, 0
+ */
+size_t looped_listint_len(const listint_t *head)
+{
+	const listint_t *jan, *feb;
+	size_t newd = 1;
+
+	if (head == NULL || head->next == NULL)
+		return (0);
+	jan = head->next;
+	feb = (head->next)->next;
+
+	while (feb)
+	{
+		if (jan == feb)
+		{
+			jan = head;
+			while (jan != feb)
+			{
+				jan = jan->next;
+				newd++;
+				jan = jan->next;
+				feb = feb->next;
+			}
+
+			jan = jan->next;
+			while (jan != feb)
+			{
+				newd++;
+				jan = jan->next;
+			}
+			return (newd);
+		}
+		jan = jan->next;
+		feb = (feb->next)->next;
+	}
+	return (0);
+}
+
 /**
  * print_listint_safe - prints linked list
  * @head: pointer
@@ -7,44 +53,28 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *ap = head;
-	const listint_t *st = head;
+	size_t newd;
+	size_t adrs = 0;
 
-	while (ap != NULL && st != NULL && st->next != NULL)
+	newd = looped_listint_len(head);
+
+	if (newd == 0)
 	{
-		printf("[%p] %d\n", (void *)ap, ap->n);
-		ap = ap->next;
-		st = st->next->next;
-		if (ap == st)
-		{
-			printf("[%p] %d\n", (void *)ap, ap->n);
-		}
-	}
-	if (ap == NULL || st == NULL || st->next == NULL)
-	{
-		while (head != NULL)
+		for (; head != NULL; newd++)
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
 		}
-		return (0);
 	}
 	else
 	{
-		size_t t = 0;
-
-		do {
-			t++;
-			printf("[%p] %d\n", (void *)ap, ap->n);
-			ap = ap->next;
-		} while (ap != st);
-		printf("-> [%p] %d\n", (void *)ap, ap->n);
-		do {
-			t++;
+		for (adrs = 0 ; adrs < newd ; adrs++)
+		{
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
-		} while (head != ap);
-		printf("print loop [%p] %d\n", (void *)ap, ap->n);
-		return (t);
+		}
+		printf("-> [%p] %d\n", (void *)head, head->n);
 	}
+	return (newd);
 }
+
