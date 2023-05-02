@@ -1,14 +1,15 @@
 #include "lists.h"
+
 /**
  * free_listint_safe - function frees linked list
  * @h: pointer
+ *
  * Return: size of list freed
  */
-
 size_t free_listint_safe(listint_t **h)
 {
-	int x;
-	size_t len = 0;
+	int pad;
+	size_t count = 0;
 	listint_t *ap;
 
 	if (!h || !*h)
@@ -16,25 +17,22 @@ size_t free_listint_safe(listint_t **h)
 
 	while (*h)
 	{
-		x = *h - (*h)->next;
-
-		if (x > 0)
+		pad = *h - (*h)->next;
+		if (pad > 0)
 		{
 			ap = (*h)->next;
 			free(*h);
 			*h = ap;
-			len++;
+			count++;
 		}
 		else
 		{
 			free(*h);
 			*h = NULL;
-			len++;
+			count++;
 			break;
 		}
 	}
-
 	*h = NULL;
-
-	return (len);
+	return (count);
 }
