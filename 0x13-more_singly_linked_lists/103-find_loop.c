@@ -1,36 +1,33 @@
 #include "lists.h"
+
 /**
- * find_listint_loop - function finds linked list loop
- * @head: list*
+ * find_listint_loop - finds linked list loop
+ * @head: list
+ *
  * Return: where the loop starts
  */
-
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *b = NULL;
-	listint_t *l = NULL;
+	listint_t *b = head;
+	listint_t *l = head;
 
-	b = head;
-	l = head;
-
-	if (head == NULL)
+	if (!head)
 		return (NULL);
+
 	while (b && l && l->next)
 	{
 		b = b->next;
 		l = l->next->next;
-		if (b == l)
+
+		if (l == b)
 		{
-			while (1)
+			b = head;
+			while (b != l)
 			{
-				l = b;
-				while (l->next != b && l->next != head)
-					l = l->next;
-				if (l->next == head)
-					break;
-				head = head->next;
+				b = b->next;
+				l = l->next;
 			}
-			return (head);
+			return (l);
 		}
 	}
 	return (NULL);
