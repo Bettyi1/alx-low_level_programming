@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * free_listint_safe - function frees linked list
  * @h: pointer
@@ -11,10 +10,9 @@ size_t free_listint_safe(listint_t **h)
 	int pad;
 	size_t count = 0;
 	listint_t *ap;
-
+	
 	if (!h || !*h)
 		return (0);
-
 	while (*h)
 	{
 		pad = *h - (*h)->next;
