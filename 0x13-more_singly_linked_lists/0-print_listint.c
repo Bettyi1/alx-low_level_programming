@@ -1,10 +1,10 @@
 #include "lists.h"
+
 /**
  * print_listint - function prints linked list elements
  * @h: type of lis
  * Return: number of nodes
  */
-
 size_t print_listint(const listint_t *h)
 {
 	size_t count_el;
@@ -13,8 +13,8 @@ size_t print_listint(const listint_t *h)
 	while (h)
 	{
 		printf("%d\n", h->n);
-		count_el++;
 		h = h->next;
+		count_el++;
 	}
 	return (count_el);
 }
