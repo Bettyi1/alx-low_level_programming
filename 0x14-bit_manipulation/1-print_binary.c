@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_binary - function prints representtation of a no
+ * print_binary - prints representtation of a no
  * @n:input value
  */
 
