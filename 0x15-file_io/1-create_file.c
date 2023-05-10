@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdio.h>
-
 /**
  * create_file - function creates a file.
  * @filename: New file pointer
@@ -10,8 +7,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int cp, y;
-	int ln = 0;
+	int cp, y, ln = 0;
 
 	cp = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	y = write(cp, text_content, ln);
@@ -24,12 +20,10 @@ int create_file(const char *filename, char *text_content)
 		for (ln = 0 ; text_content[ln];)
 			ln++;
 	}
-	if (cp == -1)
+	if (cp == -1 || y  == -1)
 		return (-1);
-	if (y == -1)
-		return (-1);
-	close(cp);
 
+	close(cp);
 	return (1);
 }
 
