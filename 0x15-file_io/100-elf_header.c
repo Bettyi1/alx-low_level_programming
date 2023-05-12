@@ -22,6 +22,9 @@ void print_osabi(unsigned char *e_ident);
 /**
  * print_magic - Prints elf header magic numbers
  * @e_ident: Pointer to an array
+ *
+ *
+ * Description: for magic numbers sepated by spaces
  */
 void print_magic(unsigned char *e_ident)
 {
@@ -37,7 +40,6 @@ void print_magic(unsigned char *e_ident)
 			printf(" ");
 	}
 }
-
 /**
  * print_version - Prfunction prints new version of elf header
  * @e_ident: Pointer to array
@@ -57,7 +59,6 @@ void print_version(unsigned char *e_ident)
 		break;
 	}
 }
-
 /**
  * print_class - function prints an ELF header.
  * @e_ident:  pointer to a array
