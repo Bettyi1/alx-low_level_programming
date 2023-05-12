@@ -19,13 +19,10 @@ void print_data(unsigned char *e_ident);
 void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void print_osabi(unsigned char *e_ident);
 
-
-
 /**
  * print_magic - Prints elf header magic numbers
- * e_ident: Pointer to an array
+ * @e_ident: Pointer to an array
  */
-
 void print_magic(unsigned char *e_ident)
 {
 	int i;
@@ -126,7 +123,6 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  * Return: 0 on success
  * Description: If  function fails or file isn't elf exit on code 98
  */
-
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int x, y;
@@ -175,7 +171,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 /**
  * close_elf - function closes the elf file
  * @elf: file name
- * Description: exit ode 98, if file fails t close
+ * Return: 0
+ * Description: exit code 98, if file fails t close
  */
 
 void close_elf(int elf)
